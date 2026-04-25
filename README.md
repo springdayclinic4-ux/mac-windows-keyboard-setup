@@ -6,14 +6,16 @@
 
 - **`맥_윈도우식_단축키_설정.md`** — 모든 단축키 매핑 + 권한 체크리스트 + 트러블슈팅 가이드
 - **`karabiner_백업_20260425.json`** — Karabiner-Elements 설정 파일 (그대로 `~/.config/karabiner/karabiner.json` 자리에 복사)
+- **`karabiner_프리셋_windows_shortcuts.json`** — `rux616/karabiner-windows-mode` 의 Windows Shortcuts 프리셋 (63개 규칙 백업)
 - **`karabiner_내수동설정_백업_*.json`** — 중간 백업 (참고용)
 
 ## 새 맥에서 한 번에 복원
 
 ```bash
 brew install --cask karabiner-elements rectangle alt-tab mos
-mkdir -p ~/.config/karabiner
+mkdir -p ~/.config/karabiner/assets/complex_modifications
 cp karabiner_백업_20260425.json ~/.config/karabiner/karabiner.json
+cp karabiner_프리셋_windows_shortcuts.json ~/.config/karabiner/assets/complex_modifications/1777047574.json
 open -a Karabiner-Elements
 ```
 
