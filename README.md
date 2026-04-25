@@ -11,13 +11,14 @@
 
 ## 새 맥에서 한 번에 복원
 
+**가장 간단한 방법** — 자동 스크립트:
 ```bash
-brew install --cask karabiner-elements rectangle alt-tab mos
-mkdir -p ~/.config/karabiner/assets/complex_modifications
-cp karabiner_백업_20260425.json ~/.config/karabiner/karabiner.json
-cp karabiner_프리셋_windows_shortcuts.json ~/.config/karabiner/assets/complex_modifications/1777047574.json
-open -a Karabiner-Elements
+bash install.sh
 ```
+
+자동 처리: 앱 설치, 설정 복사, 트랙패드/Finder 기본 세팅, Karabiner 실행, 권한 창 띄우기.
+
+**상세 단계별 가이드**: [INSTALL.md](INSTALL.md) — 우리가 실제로 막혔던 함정(드라이버 확장 미승인, daemon 미등록, Core-Service 권한 등)을 모두 반영한 시간순 가이드. 자동 스크립트 실행 중·후로 발생할 수 있는 수동 단계가 모두 정리돼 있음.
 
 이후 `맥_윈도우식_단축키_설정.md` 의 권한 체크리스트 따라 시스템 권한 허용 + 재부팅.
 
