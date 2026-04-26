@@ -34,7 +34,7 @@
                         "description": "Windows 키 단축키 (좌측 Option = Win)",
                         "manipulators": [
                             { "type": "basic", "from": { "key_code": "e", "modifiers": { "mandatory": ["left_command"], "optional": ["caps_lock"] } }, "to": [{ "shell_command": "open -a Finder ~" }] },
-                            { "type": "basic", "from": { "key_code": "d", "modifiers": { "mandatory": ["left_command"], "optional": ["caps_lock"] } }, "to": [{ "key_code": "mission_control" }] },
+                            { "type": "basic", "from": { "key_code": "d", "modifiers": { "mandatory": ["left_command"], "optional": ["caps_lock"] } }, "to": [{ "key_code": "mission_control" }], "conditions": [{ "type": "frontmost_application_unless", "bundle_identifiers": ["^com\\.apple\\.Terminal$", "^com\\.googlecode\\.iterm2$", "^co\\.zeit\\.hyper$", "^net\\.kovidgoyal\\.kitty$", "^org\\.alacritty$", "^com\\.github\\.wez\\.wezterm$", "^dev\\.warp\\.Warp-Stable$", "^dev\\.warp\\.Warp$"] }] },
                             { "type": "basic", "from": { "key_code": "r", "modifiers": { "mandatory": ["left_command"], "optional": ["caps_lock"] } }, "to": [{ "key_code": "spacebar", "modifiers": ["left_command"] }] },
                             { "type": "basic", "from": { "key_code": "l", "modifiers": { "mandatory": ["left_command"], "optional": ["caps_lock"] } }, "to": [{ "key_code": "q", "modifiers": ["left_control", "left_command"] }] },
                             { "type": "basic", "from": { "key_code": "i", "modifiers": { "mandatory": ["left_command"], "optional": ["caps_lock"] } }, "to": [{ "shell_command": "open -a 'System Settings'" }] },
@@ -140,6 +140,18 @@
                         "manipulators": [
                             { "type": "basic", "from": { "key_code": "home", "modifiers": { "mandatory": ["left_control"], "optional": ["shift", "caps_lock"] } }, "to": [{ "key_code": "up_arrow", "modifiers": ["left_command"] }] },
                             { "type": "basic", "from": { "key_code": "end", "modifiers": { "mandatory": ["left_control"], "optional": ["shift", "caps_lock"] } }, "to": [{ "key_code": "down_arrow", "modifiers": ["left_command"] }] }
+                        ]
+                    },
+                    {
+                        "description": "Alt+PrintScreen → 활성 창 캡처 → 클립보드 (윈도우식)",
+                        "manipulators": [
+                            {
+                                "type": "basic",
+                                "from": { "key_code": "print_screen", "modifiers": { "mandatory": ["left_alt"], "optional": ["caps_lock"] } },
+                                "to": [{
+                                    "shell_command": "WIN=$(osascript -e 'tell application \"System Events\" to id of front window of (first application process whose frontmost is true)' 2>/dev/null); if [ -n \"$WIN\" ]; then /usr/sbin/screencapture -l$WIN -c -o; else /usr/sbin/screencapture -Wc; fi"
+                                }]
+                            }
                         ]
                     },
                     {

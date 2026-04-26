@@ -56,6 +56,8 @@ bash verify.sh
 | `karabiner_백업_20260425.json` | Karabiner-Elements 메인 설정 (커스텀 18개 규칙) |
 | `karabiner_프리셋_windows_shortcuts.json` | rux616 Windows Shortcuts 프리셋 (63개) |
 | `karabiner_내수동설정_백업_*.json` | 중간 백업 (참고용) |
+| `Brewfile` | 필수 앱 4종 정의 (`brew bundle` 호환) |
+| **[STORY.md](STORY.md)** | **🪖 시행착오 전체 기록** — 같은 길 가는 사람의 시간 절약용 |
 
 ---
 

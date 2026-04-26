@@ -43,20 +43,9 @@ else
 fi
 
 # ============================================================
-c_step "2/8  필수 앱 4종 설치"
-for app_pair in "karabiner-elements:Karabiner-Elements.app" "rectangle:Rectangle.app" "alt-tab:AltTab.app" "mos:Mos.app"; do
-    cask="${app_pair%%:*}"
-    app="${app_pair##*:}"
-    if app_installed "$app"; then
-        c_skip "$app"
-    else
-        c_info "$cask 설치 중..."
-        if [ "$cask" = "karabiner-elements" ]; then
-            c_warn "DriverKit 설치 시 비밀번호 입력 요구됨"
-        fi
-        brew install --cask "$cask" || c_warn "$cask 설치 실패 — 수동으로 다시 시도"
-    fi
-done
+c_step "2/8  필수 앱 4종 설치 (Brewfile 사용)"
+c_warn "Karabiner DriverKit 설치 시 비밀번호 입력 요구됨"
+brew bundle --file="$REPO_DIR/Brewfile" || c_warn "일부 앱 설치 실패 — 수동으로 재시도"
 
 # ============================================================
 c_step "3/8  Karabiner 설정 파일 + 외부 프리셋 복사"
