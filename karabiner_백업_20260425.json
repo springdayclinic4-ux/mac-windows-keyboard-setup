@@ -14,11 +14,15 @@
             "simple_modifications": [],
             "devices": [
                 {
-                    "identifiers": { "is_pointing_device": true },
+                    "identifiers": {
+                        "is_pointing_device": true
+                    },
                     "modify_events": true
                 },
                 {
-                    "identifiers": { "is_keyboard": true },
+                    "identifiers": {
+                        "is_keyboard": true
+                    },
                     "modify_events": true
                 }
             ],
@@ -33,20 +37,488 @@
                     {
                         "description": "Windows 키 단축키 (좌측 Option = Win)",
                         "manipulators": [
-                            { "type": "basic", "from": { "key_code": "e", "modifiers": { "mandatory": ["left_command"], "optional": ["caps_lock"] } }, "to": [{ "shell_command": "open -a Finder ~" }] },
-                            { "type": "basic", "from": { "key_code": "d", "modifiers": { "mandatory": ["left_command"], "optional": ["caps_lock"] } }, "to": [{ "key_code": "mission_control" }], "conditions": [{ "type": "frontmost_application_unless", "bundle_identifiers": ["^com\\.apple\\.Terminal$", "^com\\.googlecode\\.iterm2$", "^co\\.zeit\\.hyper$", "^net\\.kovidgoyal\\.kitty$", "^org\\.alacritty$", "^com\\.github\\.wez\\.wezterm$", "^dev\\.warp\\.Warp-Stable$", "^dev\\.warp\\.Warp$"] }] },
-                            { "type": "basic", "from": { "key_code": "r", "modifiers": { "mandatory": ["left_command"], "optional": ["caps_lock"] } }, "to": [{ "key_code": "spacebar", "modifiers": ["left_command"] }] },
-                            { "type": "basic", "from": { "key_code": "l", "modifiers": { "mandatory": ["left_command"], "optional": ["caps_lock"] } }, "to": [{ "key_code": "q", "modifiers": ["left_control", "left_command"] }] },
-                            { "type": "basic", "from": { "key_code": "i", "modifiers": { "mandatory": ["left_command"], "optional": ["caps_lock"] } }, "to": [{ "shell_command": "open -a 'System Settings'" }] },
-                            { "type": "basic", "from": { "key_code": "m", "modifiers": { "mandatory": ["left_command"], "optional": ["caps_lock"] } }, "to": [{ "key_code": "m", "modifiers": ["left_command"] }] },
-                            { "type": "basic", "from": { "key_code": "tab", "modifiers": { "mandatory": ["left_command"], "optional": ["caps_lock"] } }, "to": [{ "key_code": "up_arrow", "modifiers": ["left_control"] }] },
-                            { "type": "basic", "from": { "key_code": "s", "modifiers": { "mandatory": ["left_command", "left_shift"], "optional": ["caps_lock"] } }, "to": [{ "key_code": "4", "modifiers": ["left_command", "left_shift"] }] },
-                            { "type": "basic", "from": { "key_code": "period", "modifiers": { "mandatory": ["left_command"], "optional": ["caps_lock"] } }, "to": [{ "key_code": "spacebar", "modifiers": ["left_control", "left_command"] }] },
-                            { "type": "basic", "from": { "key_code": "left_arrow", "modifiers": { "mandatory": ["left_command"], "optional": ["caps_lock"] } }, "to": [{ "key_code": "left_arrow", "modifiers": ["left_control", "left_option"] }] },
-                            { "type": "basic", "from": { "key_code": "right_arrow", "modifiers": { "mandatory": ["left_command"], "optional": ["caps_lock"] } }, "to": [{ "key_code": "right_arrow", "modifiers": ["left_control", "left_option"] }] },
-                            { "type": "basic", "from": { "key_code": "up_arrow", "modifiers": { "mandatory": ["left_command"], "optional": ["caps_lock"] } }, "to": [{ "key_code": "return_or_enter", "modifiers": ["left_control", "left_option"] }] },
-                            { "type": "basic", "from": { "key_code": "down_arrow", "modifiers": { "mandatory": ["left_command"], "optional": ["caps_lock"] } }, "to": [{ "key_code": "m", "modifiers": ["left_command"] }] },
-                            { "type": "basic", "from": { "key_code": "f4", "modifiers": { "mandatory": ["left_option"], "optional": ["caps_lock"] } }, "to": [{ "key_code": "w", "modifiers": ["left_command"] }] }
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "e",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_command"
+                                        ],
+                                        "optional": [
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "shell_command": "open -a Finder ~"
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.vmware\\.fusion$",
+                                            "^com\\.vmware\\.fusionApplicationsMenu$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "d",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_command"
+                                        ],
+                                        "optional": [
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "mission_control"
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^co\\.zeit\\.hyper$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^org\\.alacritty$",
+                                            "^com\\.github\\.wez\\.wezterm$",
+                                            "^dev\\.warp\\.Warp-Stable$",
+                                            "^dev\\.warp\\.Warp$",
+                                            "^com\\.vmware\\.fusion$",
+                                            "^com\\.vmware\\.fusionApplicationsMenu$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "r",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_command"
+                                        ],
+                                        "optional": [
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "spacebar",
+                                        "modifiers": [
+                                            "left_command"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.vmware\\.fusion$",
+                                            "^com\\.vmware\\.fusionApplicationsMenu$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "l",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_command"
+                                        ],
+                                        "optional": [
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "q",
+                                        "modifiers": [
+                                            "left_control",
+                                            "left_command"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.vmware\\.fusion$",
+                                            "^com\\.vmware\\.fusionApplicationsMenu$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "i",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_command"
+                                        ],
+                                        "optional": [
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "shell_command": "open -a 'System Settings'"
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.vmware\\.fusion$",
+                                            "^com\\.vmware\\.fusionApplicationsMenu$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "m",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_command"
+                                        ],
+                                        "optional": [
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "m",
+                                        "modifiers": [
+                                            "left_command"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.vmware\\.fusion$",
+                                            "^com\\.vmware\\.fusionApplicationsMenu$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "tab",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_command"
+                                        ],
+                                        "optional": [
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "up_arrow",
+                                        "modifiers": [
+                                            "left_control"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.vmware\\.fusion$",
+                                            "^com\\.vmware\\.fusionApplicationsMenu$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "s",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_command",
+                                            "left_shift"
+                                        ],
+                                        "optional": [
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "4",
+                                        "modifiers": [
+                                            "left_command",
+                                            "left_shift"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.vmware\\.fusion$",
+                                            "^com\\.vmware\\.fusionApplicationsMenu$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "period",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_command"
+                                        ],
+                                        "optional": [
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "spacebar",
+                                        "modifiers": [
+                                            "left_control",
+                                            "left_command"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.vmware\\.fusion$",
+                                            "^com\\.vmware\\.fusionApplicationsMenu$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "left_arrow",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_command"
+                                        ],
+                                        "optional": [
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_arrow",
+                                        "modifiers": [
+                                            "left_control",
+                                            "left_option"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.vmware\\.fusion$",
+                                            "^com\\.vmware\\.fusionApplicationsMenu$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "right_arrow",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_command"
+                                        ],
+                                        "optional": [
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "right_arrow",
+                                        "modifiers": [
+                                            "left_control",
+                                            "left_option"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.vmware\\.fusion$",
+                                            "^com\\.vmware\\.fusionApplicationsMenu$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "up_arrow",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_command"
+                                        ],
+                                        "optional": [
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "return_or_enter",
+                                        "modifiers": [
+                                            "left_control",
+                                            "left_option"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.vmware\\.fusion$",
+                                            "^com\\.vmware\\.fusionApplicationsMenu$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "down_arrow",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_command"
+                                        ],
+                                        "optional": [
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "m",
+                                        "modifiers": [
+                                            "left_command"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.vmware\\.fusion$",
+                                            "^com\\.vmware\\.fusionApplicationsMenu$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "f4",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_option"
+                                        ],
+                                        "optional": [
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "w",
+                                        "modifiers": [
+                                            "left_command"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.vmware\\.fusion$",
+                                            "^com\\.vmware\\.fusionApplicationsMenu$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            }
                         ]
                     },
                     {
@@ -56,10 +528,35 @@
                                 "type": "basic",
                                 "from": {
                                     "pointing_button": "button1",
-                                    "modifiers": { "mandatory": ["left_control"], "optional": ["caps_lock", "shift"] }
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_control"
+                                        ],
+                                        "optional": [
+                                            "caps_lock",
+                                            "shift"
+                                        ]
+                                    }
                                 },
                                 "to": [
-                                    { "pointing_button": "button1", "modifiers": ["left_command"] }
+                                    {
+                                        "pointing_button": "button1",
+                                        "modifiers": [
+                                            "left_command"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.vmware\\.fusion$",
+                                            "^com\\.vmware\\.fusionApplicationsMenu$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
                                 ]
                             }
                         ]
@@ -67,79 +564,1564 @@
                     {
                         "description": "Ctrl + 1~9 → 탭 이동 (Cmd + 1~9)",
                         "manipulators": [
-                            { "type": "basic", "from": { "key_code": "1", "modifiers": { "mandatory": ["left_control"], "optional": ["caps_lock"] } }, "to": [{ "key_code": "1", "modifiers": ["left_command"] }] },
-                            { "type": "basic", "from": { "key_code": "2", "modifiers": { "mandatory": ["left_control"], "optional": ["caps_lock"] } }, "to": [{ "key_code": "2", "modifiers": ["left_command"] }] },
-                            { "type": "basic", "from": { "key_code": "3", "modifiers": { "mandatory": ["left_control"], "optional": ["caps_lock"] } }, "to": [{ "key_code": "3", "modifiers": ["left_command"] }] },
-                            { "type": "basic", "from": { "key_code": "4", "modifiers": { "mandatory": ["left_control"], "optional": ["caps_lock"] } }, "to": [{ "key_code": "4", "modifiers": ["left_command"] }] },
-                            { "type": "basic", "from": { "key_code": "5", "modifiers": { "mandatory": ["left_control"], "optional": ["caps_lock"] } }, "to": [{ "key_code": "5", "modifiers": ["left_command"] }] },
-                            { "type": "basic", "from": { "key_code": "6", "modifiers": { "mandatory": ["left_control"], "optional": ["caps_lock"] } }, "to": [{ "key_code": "6", "modifiers": ["left_command"] }] },
-                            { "type": "basic", "from": { "key_code": "7", "modifiers": { "mandatory": ["left_control"], "optional": ["caps_lock"] } }, "to": [{ "key_code": "7", "modifiers": ["left_command"] }] },
-                            { "type": "basic", "from": { "key_code": "8", "modifiers": { "mandatory": ["left_control"], "optional": ["caps_lock"] } }, "to": [{ "key_code": "8", "modifiers": ["left_command"] }] },
-                            { "type": "basic", "from": { "key_code": "9", "modifiers": { "mandatory": ["left_control"], "optional": ["caps_lock"] } }, "to": [{ "key_code": "9", "modifiers": ["left_command"] }] }
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "1",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_control"
+                                        ],
+                                        "optional": [
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "1",
+                                        "modifiers": [
+                                            "left_command"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.vmware\\.fusion$",
+                                            "^com\\.vmware\\.fusionApplicationsMenu$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "2",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_control"
+                                        ],
+                                        "optional": [
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "2",
+                                        "modifiers": [
+                                            "left_command"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.vmware\\.fusion$",
+                                            "^com\\.vmware\\.fusionApplicationsMenu$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "3",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_control"
+                                        ],
+                                        "optional": [
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "3",
+                                        "modifiers": [
+                                            "left_command"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.vmware\\.fusion$",
+                                            "^com\\.vmware\\.fusionApplicationsMenu$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "4",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_control"
+                                        ],
+                                        "optional": [
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "4",
+                                        "modifiers": [
+                                            "left_command"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.vmware\\.fusion$",
+                                            "^com\\.vmware\\.fusionApplicationsMenu$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "5",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_control"
+                                        ],
+                                        "optional": [
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "5",
+                                        "modifiers": [
+                                            "left_command"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.vmware\\.fusion$",
+                                            "^com\\.vmware\\.fusionApplicationsMenu$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "6",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_control"
+                                        ],
+                                        "optional": [
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "6",
+                                        "modifiers": [
+                                            "left_command"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.vmware\\.fusion$",
+                                            "^com\\.vmware\\.fusionApplicationsMenu$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "7",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_control"
+                                        ],
+                                        "optional": [
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "7",
+                                        "modifiers": [
+                                            "left_command"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.vmware\\.fusion$",
+                                            "^com\\.vmware\\.fusionApplicationsMenu$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "8",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_control"
+                                        ],
+                                        "optional": [
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "8",
+                                        "modifiers": [
+                                            "left_command"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.vmware\\.fusion$",
+                                            "^com\\.vmware\\.fusionApplicationsMenu$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "9",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_control"
+                                        ],
+                                        "optional": [
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "9",
+                                        "modifiers": [
+                                            "left_command"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.vmware\\.fusion$",
+                                            "^com\\.vmware\\.fusionApplicationsMenu$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            }
                         ]
                     },
                     {
-                        "description": "우측 Command → 한영 전환",
+                        "description": "우측 Command → 한영 전환 (input_source_if 기반 토글)",
                         "manipulators": [
-                            { "type": "basic", "from": { "key_code": "right_command", "modifiers": { "optional": ["any"] } }, "to": [{ "key_code": "japanese_kana" }] }
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "right_command",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "conditions": [
+                                    {
+                                        "type": "input_source_if",
+                                        "input_sources": [
+                                            {
+                                                "language": "ko"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.vmware\\.fusion$",
+                                            "^com\\.vmware\\.fusionApplicationsMenu$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ],
+                                "to": [
+                                    {
+                                        "select_input_source": {
+                                            "input_source_id": "com.apple.keylayout.ABC"
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "right_command",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "select_input_source": {
+                                            "input_mode_id": "com.apple.inputmethod.Korean.2SetKorean"
+                                        }
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.vmware\\.fusion$",
+                                            "^com\\.vmware\\.fusionApplicationsMenu$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            }
                         ]
                     },
                     {
                         "description": "PC-Style Copy/Paste (Ctrl+C/V/X/Z/A → Cmd, 터미널 제외)",
                         "manipulators": [
-                            { "type": "basic", "from": { "key_code": "c", "modifiers": { "mandatory": ["left_control"], "optional": ["caps_lock", "shift"] } }, "to": [{ "key_code": "c", "modifiers": ["left_command"] }], "conditions": [{ "type": "frontmost_application_unless", "bundle_identifiers": ["^com\\.apple\\.Terminal$", "^com\\.googlecode\\.iterm2$", "^co\\.zeit\\.hyper$", "^net\\.kovidgoyal\\.kitty$", "^org\\.alacritty$", "^com\\.github\\.wez\\.wezterm$", "^dev\\.warp\\.Warp-Stable$"] }] },
-                            { "type": "basic", "from": { "key_code": "v", "modifiers": { "mandatory": ["left_control"], "optional": ["caps_lock", "shift"] } }, "to": [{ "key_code": "v", "modifiers": ["left_command"] }], "conditions": [{ "type": "frontmost_application_unless", "bundle_identifiers": ["^com\\.apple\\.Terminal$", "^com\\.googlecode\\.iterm2$", "^co\\.zeit\\.hyper$", "^net\\.kovidgoyal\\.kitty$", "^org\\.alacritty$", "^com\\.github\\.wez\\.wezterm$", "^dev\\.warp\\.Warp-Stable$"] }] },
-                            { "type": "basic", "from": { "key_code": "x", "modifiers": { "mandatory": ["left_control"], "optional": ["caps_lock", "shift"] } }, "to": [{ "key_code": "x", "modifiers": ["left_command"] }], "conditions": [{ "type": "frontmost_application_unless", "bundle_identifiers": ["^com\\.apple\\.Terminal$", "^com\\.googlecode\\.iterm2$", "^co\\.zeit\\.hyper$", "^net\\.kovidgoyal\\.kitty$", "^org\\.alacritty$", "^com\\.github\\.wez\\.wezterm$", "^dev\\.warp\\.Warp-Stable$"] }] },
-                            { "type": "basic", "from": { "key_code": "z", "modifiers": { "mandatory": ["left_control"], "optional": ["caps_lock", "shift"] } }, "to": [{ "key_code": "z", "modifiers": ["left_command"] }], "conditions": [{ "type": "frontmost_application_unless", "bundle_identifiers": ["^com\\.apple\\.Terminal$", "^com\\.googlecode\\.iterm2$", "^co\\.zeit\\.hyper$", "^net\\.kovidgoyal\\.kitty$", "^org\\.alacritty$", "^com\\.github\\.wez\\.wezterm$", "^dev\\.warp\\.Warp-Stable$"] }] },
-                            { "type": "basic", "from": { "key_code": "a", "modifiers": { "mandatory": ["left_control"], "optional": ["caps_lock"] } }, "to": [{ "key_code": "a", "modifiers": ["left_command"] }], "conditions": [{ "type": "frontmost_application_unless", "bundle_identifiers": ["^com\\.apple\\.Terminal$", "^com\\.googlecode\\.iterm2$", "^co\\.zeit\\.hyper$", "^net\\.kovidgoyal\\.kitty$", "^org\\.alacritty$", "^com\\.github\\.wez\\.wezterm$", "^dev\\.warp\\.Warp-Stable$"] }] }
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "c",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_control"
+                                        ],
+                                        "optional": [
+                                            "caps_lock",
+                                            "shift"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "c",
+                                        "modifiers": [
+                                            "left_command"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^co\\.zeit\\.hyper$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^org\\.alacritty$",
+                                            "^com\\.github\\.wez\\.wezterm$",
+                                            "^dev\\.warp\\.Warp-Stable$",
+                                            "^com\\.vmware\\.fusion$",
+                                            "^com\\.vmware\\.fusionApplicationsMenu$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "v",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_control"
+                                        ],
+                                        "optional": [
+                                            "caps_lock",
+                                            "shift"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "v",
+                                        "modifiers": [
+                                            "left_command"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^co\\.zeit\\.hyper$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^org\\.alacritty$",
+                                            "^com\\.github\\.wez\\.wezterm$",
+                                            "^dev\\.warp\\.Warp-Stable$",
+                                            "^com\\.vmware\\.fusion$",
+                                            "^com\\.vmware\\.fusionApplicationsMenu$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "x",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_control"
+                                        ],
+                                        "optional": [
+                                            "caps_lock",
+                                            "shift"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "x",
+                                        "modifiers": [
+                                            "left_command"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^co\\.zeit\\.hyper$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^org\\.alacritty$",
+                                            "^com\\.github\\.wez\\.wezterm$",
+                                            "^dev\\.warp\\.Warp-Stable$",
+                                            "^com\\.vmware\\.fusion$",
+                                            "^com\\.vmware\\.fusionApplicationsMenu$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "z",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_control"
+                                        ],
+                                        "optional": [
+                                            "caps_lock",
+                                            "shift"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "z",
+                                        "modifiers": [
+                                            "left_command"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^co\\.zeit\\.hyper$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^org\\.alacritty$",
+                                            "^com\\.github\\.wez\\.wezterm$",
+                                            "^dev\\.warp\\.Warp-Stable$",
+                                            "^com\\.vmware\\.fusion$",
+                                            "^com\\.vmware\\.fusionApplicationsMenu$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "a",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_control"
+                                        ],
+                                        "optional": [
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "a",
+                                        "modifiers": [
+                                            "left_command"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^co\\.zeit\\.hyper$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^org\\.alacritty$",
+                                            "^com\\.github\\.wez\\.wezterm$",
+                                            "^dev\\.warp\\.Warp-Stable$",
+                                            "^com\\.vmware\\.fusion$",
+                                            "^com\\.vmware\\.fusionApplicationsMenu$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            }
                         ]
                     },
                     {
                         "description": "PC-Style Shortcuts (Ctrl+T/W/N/S/F/P/O/R/L/Y/B/I/U → Cmd)",
                         "manipulators": [
-                            { "type": "basic", "from": { "key_code": "t", "modifiers": { "mandatory": ["left_control"], "optional": ["caps_lock", "shift"] } }, "to": [{ "key_code": "t", "modifiers": ["left_command"] }] },
-                            { "type": "basic", "from": { "key_code": "w", "modifiers": { "mandatory": ["left_control"], "optional": ["caps_lock", "shift"] } }, "to": [{ "key_code": "w", "modifiers": ["left_command"] }] },
-                            { "type": "basic", "from": { "key_code": "n", "modifiers": { "mandatory": ["left_control"], "optional": ["caps_lock", "shift"] } }, "to": [{ "key_code": "n", "modifiers": ["left_command"] }] },
-                            { "type": "basic", "from": { "key_code": "s", "modifiers": { "mandatory": ["left_control"], "optional": ["caps_lock", "shift"] } }, "to": [{ "key_code": "s", "modifiers": ["left_command"] }] },
-                            { "type": "basic", "from": { "key_code": "f", "modifiers": { "mandatory": ["left_control"], "optional": ["caps_lock", "shift"] } }, "to": [{ "key_code": "f", "modifiers": ["left_command"] }] },
-                            { "type": "basic", "from": { "key_code": "p", "modifiers": { "mandatory": ["left_control"], "optional": ["caps_lock", "shift"] } }, "to": [{ "key_code": "p", "modifiers": ["left_command"] }] },
-                            { "type": "basic", "from": { "key_code": "o", "modifiers": { "mandatory": ["left_control"], "optional": ["caps_lock", "shift"] } }, "to": [{ "key_code": "o", "modifiers": ["left_command"] }] },
-                            { "type": "basic", "from": { "key_code": "r", "modifiers": { "mandatory": ["left_control"], "optional": ["caps_lock", "shift"] } }, "to": [{ "key_code": "r", "modifiers": ["left_command"] }] },
-                            { "type": "basic", "from": { "key_code": "l", "modifiers": { "mandatory": ["left_control"], "optional": ["caps_lock", "shift"] } }, "to": [{ "key_code": "l", "modifiers": ["left_command"] }] },
-                            { "type": "basic", "from": { "key_code": "y", "modifiers": { "mandatory": ["left_control"], "optional": ["caps_lock", "shift"] } }, "to": [{ "key_code": "y", "modifiers": ["left_command"] }] },
-                            { "type": "basic", "from": { "key_code": "b", "modifiers": { "mandatory": ["left_control"], "optional": ["caps_lock", "shift"] } }, "to": [{ "key_code": "b", "modifiers": ["left_command"] }] },
-                            { "type": "basic", "from": { "key_code": "i", "modifiers": { "mandatory": ["left_control"], "optional": ["caps_lock", "shift"] } }, "to": [{ "key_code": "i", "modifiers": ["left_command"] }] },
-                            { "type": "basic", "from": { "key_code": "u", "modifiers": { "mandatory": ["left_control"], "optional": ["caps_lock", "shift"] } }, "to": [{ "key_code": "u", "modifiers": ["left_command"] }] }
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "t",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_control"
+                                        ],
+                                        "optional": [
+                                            "caps_lock",
+                                            "shift"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "t",
+                                        "modifiers": [
+                                            "left_command"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.vmware\\.fusion$",
+                                            "^com\\.vmware\\.fusionApplicationsMenu$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "w",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_control"
+                                        ],
+                                        "optional": [
+                                            "caps_lock",
+                                            "shift"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "w",
+                                        "modifiers": [
+                                            "left_command"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.vmware\\.fusion$",
+                                            "^com\\.vmware\\.fusionApplicationsMenu$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "n",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_control"
+                                        ],
+                                        "optional": [
+                                            "caps_lock",
+                                            "shift"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "n",
+                                        "modifiers": [
+                                            "left_command"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.vmware\\.fusion$",
+                                            "^com\\.vmware\\.fusionApplicationsMenu$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "s",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_control"
+                                        ],
+                                        "optional": [
+                                            "caps_lock",
+                                            "shift"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "s",
+                                        "modifiers": [
+                                            "left_command"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.vmware\\.fusion$",
+                                            "^com\\.vmware\\.fusionApplicationsMenu$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "f",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_control"
+                                        ],
+                                        "optional": [
+                                            "caps_lock",
+                                            "shift"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "f",
+                                        "modifiers": [
+                                            "left_command"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.vmware\\.fusion$",
+                                            "^com\\.vmware\\.fusionApplicationsMenu$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "p",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_control"
+                                        ],
+                                        "optional": [
+                                            "caps_lock",
+                                            "shift"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "p",
+                                        "modifiers": [
+                                            "left_command"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.vmware\\.fusion$",
+                                            "^com\\.vmware\\.fusionApplicationsMenu$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "o",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_control"
+                                        ],
+                                        "optional": [
+                                            "caps_lock",
+                                            "shift"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "o",
+                                        "modifiers": [
+                                            "left_command"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.vmware\\.fusion$",
+                                            "^com\\.vmware\\.fusionApplicationsMenu$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "r",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_control"
+                                        ],
+                                        "optional": [
+                                            "caps_lock",
+                                            "shift"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "r",
+                                        "modifiers": [
+                                            "left_command"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.vmware\\.fusion$",
+                                            "^com\\.vmware\\.fusionApplicationsMenu$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "l",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_control"
+                                        ],
+                                        "optional": [
+                                            "caps_lock",
+                                            "shift"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "l",
+                                        "modifiers": [
+                                            "left_command"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.vmware\\.fusion$",
+                                            "^com\\.vmware\\.fusionApplicationsMenu$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "y",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_control"
+                                        ],
+                                        "optional": [
+                                            "caps_lock",
+                                            "shift"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "y",
+                                        "modifiers": [
+                                            "left_command"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.vmware\\.fusion$",
+                                            "^com\\.vmware\\.fusionApplicationsMenu$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "b",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_control"
+                                        ],
+                                        "optional": [
+                                            "caps_lock",
+                                            "shift"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "b",
+                                        "modifiers": [
+                                            "left_command"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.vmware\\.fusion$",
+                                            "^com\\.vmware\\.fusionApplicationsMenu$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "i",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_control"
+                                        ],
+                                        "optional": [
+                                            "caps_lock",
+                                            "shift"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "i",
+                                        "modifiers": [
+                                            "left_command"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.vmware\\.fusion$",
+                                            "^com\\.vmware\\.fusionApplicationsMenu$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "u",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_control"
+                                        ],
+                                        "optional": [
+                                            "caps_lock",
+                                            "shift"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "u",
+                                        "modifiers": [
+                                            "left_command"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.vmware\\.fusion$",
+                                            "^com\\.vmware\\.fusionApplicationsMenu$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Alt + 방향키 → 데스크탑/Mission Control 전환",
+                        "manipulators": [
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "left_arrow",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_option"
+                                        ],
+                                        "optional": [
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_arrow",
+                                        "modifiers": [
+                                            "left_control"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.vmware\\.fusion$",
+                                            "^com\\.vmware\\.fusionApplicationsMenu$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "right_arrow",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_option"
+                                        ],
+                                        "optional": [
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "right_arrow",
+                                        "modifiers": [
+                                            "left_control"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.vmware\\.fusion$",
+                                            "^com\\.vmware\\.fusionApplicationsMenu$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "up_arrow",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_option"
+                                        ],
+                                        "optional": [
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "up_arrow",
+                                        "modifiers": [
+                                            "left_control"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.vmware\\.fusion$",
+                                            "^com\\.vmware\\.fusionApplicationsMenu$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "down_arrow",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_option"
+                                        ],
+                                        "optional": [
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "down_arrow",
+                                        "modifiers": [
+                                            "left_control"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.vmware\\.fusion$",
+                                            "^com\\.vmware\\.fusionApplicationsMenu$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            }
                         ]
                     },
                     {
                         "description": "Ctrl + 방향키 → 단어 단위 이동 (Option+방향키)",
                         "manipulators": [
-                            { "type": "basic", "from": { "key_code": "left_arrow", "modifiers": { "mandatory": ["left_control"], "optional": ["shift", "caps_lock"] } }, "to": [{ "key_code": "left_arrow", "modifiers": ["left_option"] }] },
-                            { "type": "basic", "from": { "key_code": "right_arrow", "modifiers": { "mandatory": ["left_control"], "optional": ["shift", "caps_lock"] } }, "to": [{ "key_code": "right_arrow", "modifiers": ["left_option"] }] },
-                            { "type": "basic", "from": { "key_code": "up_arrow", "modifiers": { "mandatory": ["left_control"], "optional": ["shift", "caps_lock"] } }, "to": [{ "key_code": "up_arrow", "modifiers": ["left_option"] }] },
-                            { "type": "basic", "from": { "key_code": "down_arrow", "modifiers": { "mandatory": ["left_control"], "optional": ["shift", "caps_lock"] } }, "to": [{ "key_code": "down_arrow", "modifiers": ["left_option"] }] }
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "left_arrow",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_control"
+                                        ],
+                                        "optional": [
+                                            "shift",
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_arrow",
+                                        "modifiers": [
+                                            "left_option"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.vmware\\.fusion$",
+                                            "^com\\.vmware\\.fusionApplicationsMenu$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "right_arrow",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_control"
+                                        ],
+                                        "optional": [
+                                            "shift",
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "right_arrow",
+                                        "modifiers": [
+                                            "left_option"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.vmware\\.fusion$",
+                                            "^com\\.vmware\\.fusionApplicationsMenu$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "up_arrow",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_control"
+                                        ],
+                                        "optional": [
+                                            "shift",
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "up_arrow",
+                                        "modifiers": [
+                                            "left_option"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.vmware\\.fusion$",
+                                            "^com\\.vmware\\.fusionApplicationsMenu$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "down_arrow",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_control"
+                                        ],
+                                        "optional": [
+                                            "shift",
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "down_arrow",
+                                        "modifiers": [
+                                            "left_option"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.vmware\\.fusion$",
+                                            "^com\\.vmware\\.fusionApplicationsMenu$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            }
                         ]
                     },
                     {
                         "description": "Ctrl + Backspace/Delete → 단어 삭제",
                         "manipulators": [
-                            { "type": "basic", "from": { "key_code": "delete_or_backspace", "modifiers": { "mandatory": ["left_control"], "optional": ["shift", "caps_lock"] } }, "to": [{ "key_code": "delete_or_backspace", "modifiers": ["left_option"] }] },
-                            { "type": "basic", "from": { "key_code": "delete_forward", "modifiers": { "mandatory": ["left_control"], "optional": ["shift", "caps_lock"] } }, "to": [{ "key_code": "delete_forward", "modifiers": ["left_option"] }] }
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "delete_or_backspace",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_control"
+                                        ],
+                                        "optional": [
+                                            "shift",
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "delete_or_backspace",
+                                        "modifiers": [
+                                            "left_option"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.vmware\\.fusion$",
+                                            "^com\\.vmware\\.fusionApplicationsMenu$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "delete_forward",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_control"
+                                        ],
+                                        "optional": [
+                                            "shift",
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "delete_forward",
+                                        "modifiers": [
+                                            "left_option"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.vmware\\.fusion$",
+                                            "^com\\.vmware\\.fusionApplicationsMenu$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            }
                         ]
                     },
                     {
                         "description": "Home/End → 줄 처음/끝",
                         "manipulators": [
-                            { "type": "basic", "from": { "key_code": "home", "modifiers": { "optional": ["shift", "caps_lock"] } }, "to": [{ "key_code": "left_arrow", "modifiers": ["left_command"] }] },
-                            { "type": "basic", "from": { "key_code": "end", "modifiers": { "optional": ["shift", "caps_lock"] } }, "to": [{ "key_code": "right_arrow", "modifiers": ["left_command"] }] }
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "home",
+                                    "modifiers": {
+                                        "optional": [
+                                            "shift",
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_arrow",
+                                        "modifiers": [
+                                            "left_command"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.vmware\\.fusion$",
+                                            "^com\\.vmware\\.fusionApplicationsMenu$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "end",
+                                    "modifiers": {
+                                        "optional": [
+                                            "shift",
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "right_arrow",
+                                        "modifiers": [
+                                            "left_command"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.vmware\\.fusion$",
+                                            "^com\\.vmware\\.fusionApplicationsMenu$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            }
                         ]
                     },
                     {
                         "description": "Ctrl+Home/End → 문서 맨 위/아래",
                         "manipulators": [
-                            { "type": "basic", "from": { "key_code": "home", "modifiers": { "mandatory": ["left_control"], "optional": ["shift", "caps_lock"] } }, "to": [{ "key_code": "up_arrow", "modifiers": ["left_command"] }] },
-                            { "type": "basic", "from": { "key_code": "end", "modifiers": { "mandatory": ["left_control"], "optional": ["shift", "caps_lock"] } }, "to": [{ "key_code": "down_arrow", "modifiers": ["left_command"] }] }
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "home",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_control"
+                                        ],
+                                        "optional": [
+                                            "shift",
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "up_arrow",
+                                        "modifiers": [
+                                            "left_command"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.vmware\\.fusion$",
+                                            "^com\\.vmware\\.fusionApplicationsMenu$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "end",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_control"
+                                        ],
+                                        "optional": [
+                                            "shift",
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "down_arrow",
+                                        "modifiers": [
+                                            "left_command"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.vmware\\.fusion$",
+                                            "^com\\.vmware\\.fusionApplicationsMenu$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            }
                         ]
                     },
                     {
@@ -147,17 +2129,67 @@
                         "manipulators": [
                             {
                                 "type": "basic",
-                                "from": { "key_code": "print_screen", "modifiers": { "mandatory": ["left_alt"], "optional": ["caps_lock"] } },
-                                "to": [{
-                                    "shell_command": "WIN=$(osascript -e 'tell application \"System Events\" to id of front window of (first application process whose frontmost is true)' 2>/dev/null); if [ -n \"$WIN\" ]; then /usr/sbin/screencapture -l$WIN -c -o; else /usr/sbin/screencapture -Wc; fi"
-                                }]
+                                "from": {
+                                    "key_code": "print_screen",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_alt"
+                                        ],
+                                        "optional": [
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "shell_command": "WIN=$(osascript -e 'tell application \"System Events\" to id of front window of (first application process whose frontmost is true)' 2>/dev/null); if [ -n \"$WIN\" ]; then /usr/sbin/screencapture -l$WIN -c -o; else /usr/sbin/screencapture -Wc; fi"
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.vmware\\.fusion$",
+                                            "^com\\.vmware\\.fusionApplicationsMenu$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
                             }
                         ]
                     },
                     {
                         "description": "PrintScreen → 영역 스크린샷",
                         "manipulators": [
-                            { "type": "basic", "from": { "key_code": "print_screen" }, "to": [{ "key_code": "4", "modifiers": ["left_command", "left_shift"] }] }
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "print_screen"
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "4",
+                                        "modifiers": [
+                                            "left_command",
+                                            "left_shift"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.vmware\\.fusion$",
+                                            "^com\\.vmware\\.fusionApplicationsMenu$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            }
                         ]
                     },
                     {
@@ -165,8 +2197,22 @@
                         "manipulators": [
                             {
                                 "type": "basic",
-                                "from": { "key_code": "delete_forward", "modifiers": { "optional": ["caps_lock"] } },
-                                "to": [{ "key_code": "delete_or_backspace", "modifiers": ["left_command"] }],
+                                "from": {
+                                    "key_code": "delete_forward",
+                                    "modifiers": {
+                                        "optional": [
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "delete_or_backspace",
+                                        "modifiers": [
+                                            "left_command"
+                                        ]
+                                    }
+                                ],
                                 "conditions": [
                                     {
                                         "type": "frontmost_application_if",
@@ -178,6 +2224,16 @@
                                             "^com\\.binarynights\\.ForkLift",
                                             "^com\\.cocoatech\\.PathFinder"
                                         ]
+                                    },
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.vmware\\.fusion$",
+                                            "^com\\.vmware\\.fusionApplicationsMenu$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
                                     }
                                 ]
                             }
@@ -186,88 +2242,526 @@
                     {
                         "description": "Insert 키 활용 (Ctrl+Ins=복사, Shift+Ins=붙여넣기)",
                         "manipulators": [
-                            { "type": "basic", "from": { "key_code": "insert", "modifiers": { "mandatory": ["left_control"] } }, "to": [{ "key_code": "c", "modifiers": ["left_command"] }] },
-                            { "type": "basic", "from": { "key_code": "insert", "modifiers": { "mandatory": ["left_shift"] } }, "to": [{ "key_code": "v", "modifiers": ["left_command"] }] },
-                            { "type": "basic", "from": { "key_code": "insert" }, "to": [{ "key_code": "vk_none" }] }
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "insert",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_control"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "c",
+                                        "modifiers": [
+                                            "left_command"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.vmware\\.fusion$",
+                                            "^com\\.vmware\\.fusionApplicationsMenu$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "insert",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_shift"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "v",
+                                        "modifiers": [
+                                            "left_command"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.vmware\\.fusion$",
+                                            "^com\\.vmware\\.fusionApplicationsMenu$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "insert"
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "vk_none"
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.vmware\\.fusion$",
+                                            "^com\\.vmware\\.fusionApplicationsMenu$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            }
                         ]
                     },
                     {
                         "description": "Page Up/Down → Fn+위/아래 (모든 앱에서 동작)",
                         "manipulators": [
-                            { "type": "basic", "from": { "key_code": "page_up", "modifiers": { "optional": ["any"] } }, "to": [{ "key_code": "page_up" }] },
-                            { "type": "basic", "from": { "key_code": "page_down", "modifiers": { "optional": ["any"] } }, "to": [{ "key_code": "page_down" }] }
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "page_up",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "page_up"
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.vmware\\.fusion$",
+                                            "^com\\.vmware\\.fusionApplicationsMenu$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "page_down",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "page_down"
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.vmware\\.fusion$",
+                                            "^com\\.vmware\\.fusionApplicationsMenu$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            }
                         ]
                     },
                     {
                         "description": "Scroll Lock / Pause 무시 (맥에서 의미 없음)",
                         "manipulators": [
-                            { "type": "basic", "from": { "key_code": "scroll_lock" }, "to": [{ "key_code": "vk_none" }] },
-                            { "type": "basic", "from": { "key_code": "pause" }, "to": [{ "key_code": "vk_none" }] }
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "scroll_lock"
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "vk_none"
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.vmware\\.fusion$",
+                                            "^com\\.vmware\\.fusionApplicationsMenu$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "pause"
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "vk_none"
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.vmware\\.fusion$",
+                                            "^com\\.vmware\\.fusionApplicationsMenu$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            }
                         ]
                     },
                     {
                         "description": "Ctrl+Tab / Ctrl+Shift+Tab → 탭 전환",
                         "manipulators": [
-                            { "type": "basic", "from": { "key_code": "tab", "modifiers": { "mandatory": ["left_control"] } }, "to": [{ "key_code": "right_arrow", "modifiers": ["left_command", "left_option"] }] },
-                            { "type": "basic", "from": { "key_code": "tab", "modifiers": { "mandatory": ["left_control", "left_shift"] } }, "to": [{ "key_code": "left_arrow", "modifiers": ["left_command", "left_option"] }] }
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "tab",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_control"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "right_arrow",
+                                        "modifiers": [
+                                            "left_command",
+                                            "left_option"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.vmware\\.fusion$",
+                                            "^com\\.vmware\\.fusionApplicationsMenu$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "tab",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_control",
+                                            "left_shift"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_arrow",
+                                        "modifiers": [
+                                            "left_command",
+                                            "left_option"
+                                        ]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.vmware\\.fusion$",
+                                            "^com\\.vmware\\.fusionApplicationsMenu$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            }
                         ]
                     },
                     {
-                        "description": "외부 키보드 한/영 키 → 입력 소스 직접 토글",
+                        "description": "한/영 전환 — select_input_source 토글 (모든 한/영 키 통합)",
                         "manipulators": [
                             {
                                 "type": "basic",
-                                "from": { "key_code": "japanese_kana" },
-                                "conditions": [{ "type": "variable_if", "name": "korean_input_active", "value": 1 }],
-                                "to": [
-                                    { "select_input_source": { "input_source_id": "com.apple.keylayout.ABC" } },
-                                    { "set_variable": { "name": "korean_input_active", "value": 0 } }
-                                ]
-                            },
-                            {
-                                "type": "basic",
-                                "from": { "key_code": "japanese_kana" },
-                                "to": [
-                                    { "select_input_source": { "input_mode_id": "com.apple.inputmethod.Korean.2SetKorean" } },
-                                    { "set_variable": { "name": "korean_input_active", "value": 1 } }
-                                ]
-                            },
-                            {
-                                "type": "basic",
-                                "from": { "key_code": "lang1" },
-                                "conditions": [{ "type": "variable_if", "name": "korean_input_active", "value": 1 }],
-                                "to": [
-                                    { "select_input_source": { "input_source_id": "com.apple.keylayout.ABC" } },
-                                    { "set_variable": { "name": "korean_input_active", "value": 0 } }
-                                ]
-                            },
-                            {
-                                "type": "basic",
-                                "from": { "key_code": "lang1" },
-                                "to": [
-                                    { "select_input_source": { "input_mode_id": "com.apple.inputmethod.Korean.2SetKorean" } },
-                                    { "set_variable": { "name": "korean_input_active", "value": 1 } }
-                                ]
-                            },
-                            {
-                                "type": "basic",
-                                "from": { "key_code": "right_alt" },
+                                "from": {
+                                    "key_code": "japanese_kana"
+                                },
                                 "conditions": [
-                                    { "type": "device_if", "identifiers": [{ "is_keyboard": true, "is_built_in_keyboard": false }] },
-                                    { "type": "variable_if", "name": "korean_input_active", "value": 1 }
+                                    {
+                                        "type": "input_source_if",
+                                        "input_sources": [
+                                            {
+                                                "language": "ko"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.vmware\\.fusion$",
+                                            "^com\\.vmware\\.fusionApplicationsMenu$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
                                 ],
                                 "to": [
-                                    { "select_input_source": { "input_source_id": "com.apple.keylayout.ABC" } },
-                                    { "set_variable": { "name": "korean_input_active", "value": 0 } }
+                                    {
+                                        "select_input_source": {
+                                            "input_source_id": "com.apple.keylayout.ABC"
+                                        }
+                                    }
                                 ]
                             },
                             {
                                 "type": "basic",
-                                "from": { "key_code": "right_alt" },
-                                "conditions": [{ "type": "device_if", "identifiers": [{ "is_keyboard": true, "is_built_in_keyboard": false }] }],
+                                "from": {
+                                    "key_code": "japanese_kana"
+                                },
                                 "to": [
-                                    { "select_input_source": { "input_mode_id": "com.apple.inputmethod.Korean.2SetKorean" } },
-                                    { "set_variable": { "name": "korean_input_active", "value": 1 } }
+                                    {
+                                        "select_input_source": {
+                                            "input_mode_id": "com.apple.inputmethod.Korean.2SetKorean"
+                                        }
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.vmware\\.fusion$",
+                                            "^com\\.vmware\\.fusionApplicationsMenu$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "lang1"
+                                },
+                                "conditions": [
+                                    {
+                                        "type": "input_source_if",
+                                        "input_sources": [
+                                            {
+                                                "language": "ko"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.vmware\\.fusion$",
+                                            "^com\\.vmware\\.fusionApplicationsMenu$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ],
+                                "to": [
+                                    {
+                                        "select_input_source": {
+                                            "input_source_id": "com.apple.keylayout.ABC"
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "lang1"
+                                },
+                                "to": [
+                                    {
+                                        "select_input_source": {
+                                            "input_mode_id": "com.apple.inputmethod.Korean.2SetKorean"
+                                        }
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.vmware\\.fusion$",
+                                            "^com\\.vmware\\.fusionApplicationsMenu$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "international1"
+                                },
+                                "conditions": [
+                                    {
+                                        "type": "input_source_if",
+                                        "input_sources": [
+                                            {
+                                                "language": "ko"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.vmware\\.fusion$",
+                                            "^com\\.vmware\\.fusionApplicationsMenu$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ],
+                                "to": [
+                                    {
+                                        "select_input_source": {
+                                            "input_source_id": "com.apple.keylayout.ABC"
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "international1"
+                                },
+                                "to": [
+                                    {
+                                        "select_input_source": {
+                                            "input_mode_id": "com.apple.inputmethod.Korean.2SetKorean"
+                                        }
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.vmware\\.fusion$",
+                                            "^com\\.vmware\\.fusionApplicationsMenu$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "right_alt"
+                                },
+                                "conditions": [
+                                    {
+                                        "type": "device_if",
+                                        "identifiers": [
+                                            {
+                                                "is_keyboard": true,
+                                                "is_built_in_keyboard": false
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "input_source_if",
+                                        "input_sources": [
+                                            {
+                                                "language": "ko"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.vmware\\.fusion$",
+                                            "^com\\.vmware\\.fusionApplicationsMenu$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ],
+                                "to": [
+                                    {
+                                        "select_input_source": {
+                                            "input_source_id": "com.apple.keylayout.ABC"
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "right_alt"
+                                },
+                                "conditions": [
+                                    {
+                                        "type": "device_if",
+                                        "identifiers": [
+                                            {
+                                                "is_keyboard": true,
+                                                "is_built_in_keyboard": false
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^com\\.vmware\\.fusion$",
+                                            "^com\\.vmware\\.fusionApplicationsMenu$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$"
+                                        ]
+                                    }
+                                ],
+                                "to": [
+                                    {
+                                        "select_input_source": {
+                                            "input_mode_id": "com.apple.inputmethod.Korean.2SetKorean"
+                                        }
+                                    }
                                 ]
                             }
                         ]
@@ -275,8 +2769,58 @@
                     {
                         "description": "좌측 Option ↔ 좌측 Command 스왑 (맥북 내장 키보드만)",
                         "manipulators": [
-                            { "type": "basic", "from": { "key_code": "left_option", "modifiers": { "optional": ["any"] } }, "to": [{ "key_code": "left_command" }], "conditions": [{ "type": "device_if", "identifiers": [{ "is_built_in_keyboard": true }] }] },
-                            { "type": "basic", "from": { "key_code": "left_command", "modifiers": { "optional": ["any"] } }, "to": [{ "key_code": "left_option" }], "conditions": [{ "type": "device_if", "identifiers": [{ "is_built_in_keyboard": true }] }] }
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "left_option",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_command"
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "device_if",
+                                        "identifiers": [
+                                            {
+                                                "is_built_in_keyboard": true
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "left_command",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_option"
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "device_if",
+                                        "identifiers": [
+                                            {
+                                                "is_built_in_keyboard": true
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
                         ]
                     }
                 ]

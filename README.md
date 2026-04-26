@@ -119,6 +119,24 @@ bash verify.sh
 
 ---
 
+## 🖥️ VM(가상머신, UTM/VMware/Parallels) 호환
+
+UTM·VMware Fusion·Parallels에 윈도우를 깔아서 듀얼로 굴리는 경우, Karabiner가 macOS 레벨에서 키를 가로채면 VM 안 윈도우 단축키가 망가집니다. 이 저장소의 `karabiner.json`은 **74개 매니퓰레이터 전부에 VM 앱 예외**가 박혀 있어서 자동 호환됩니다.
+
+**예외 처리된 VM 앱**:
+- `com.utmapp.UTM`
+- `com.vmware.fusion`, `com.vmware.fusionApplicationsMenu`
+- `com.parallels.desktop.console`
+- `org.virtualbox.app.VirtualBoxVM`
+
+**작동 방식**: VM 앱이 활성화된 동안엔 Karabiner 변환 일절 안 함 → 키가 raw 그대로 VM에 전달 → VM이 윈도우로 forward → Windows가 자체 처리. 예: VM 안에서 Ctrl+C 누르면 Windows 클립보드 복사 정상 작동.
+
+**예외**: 좌측 Option↔Cmd 스왑 룰만 VM 안에서도 활성화. 빌트인 키보드의 Alt 위치 키를 Windows Alt로 인식시키기 위함. 자세한 건 [STORY.md](STORY.md) 14장 참조.
+
+**알려진 트레이드오프**: 마우스 휠 스크롤은 VM 안에서 거꾸로 느껴짐 (macOS+Mos+VM 3중 처리 충돌). Mac에서만 Windows식 휠 살리고 VM 안 휠은 포기하는 게 실용적인 합의점입니다.
+
+---
+
 ## 📚 출처 / 참고
 
 - **Karabiner-Elements**: https://karabiner-elements.pqrs.org/

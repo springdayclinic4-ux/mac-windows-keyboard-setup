@@ -278,23 +278,96 @@ Karabiner shell_command 액션으로 호출:
 
 ---
 
-## 14. 최종 통계
+## 14. UTM(가상머신) 윈도우 호환 — 추가 함정 3종
 
-- 거친 함정: **9가지**
+설정 다 끝내고 한참 잘 쓰다가, **UTM에 윈도우 깔아서 듀얼 환경**으로 굴리니까 단축키들이 한 번 더 꼬였다.
+
+### 함정 a: VM 안에서 Win+E 누르니까 맥 Finder가 뜸
+
+**원인**: Karabiner는 macOS 레벨에서 키를 가로채서 변환함. UTM 창에 포커스 있어도 Karabiner가 먼저 잡아서 Cmd+E로 바꿔 → macOS Finder 발동 → UTM에 도달조차 안 함.
+
+**해결**: 모든 매니퓰레이터에 `frontmost_application_unless` 조건으로 VM 앱 bundle ID 추가.
+
+```json
+"conditions": [{
+  "type": "frontmost_application_unless",
+  "bundle_identifiers": [
+    "^com\\.utmapp\\.UTM$",
+    "^com\\.vmware\\.fusion$",
+    "^com\\.parallels\\.desktop\\.console$",
+    ...
+  ]
+}]
+```
+
+74개 매니퓰레이터 전부에 일괄 추가. UTM 활성화 시 Karabiner는 키 변환 일절 안 함.
+
+### 함정 b: UTM 안에서 Alt+Tab도 안 됨 (스왑 룰까지 끄면 안 됨)
+
+위 a 해결한 직후 발견. UTM 안에서 (Alt 위치 키)+Tab 누르니까 **Mac App Switcher**가 뜨고 Windows Alt+Tab은 안 작동.
+
+**원인**: Option↔Cmd 스왑 룰까지 UTM 예외에 포함시켜서, 빌트인 키보드의 물리 left_command(=Alt 위치) → 그대로 left_command 송출 → macOS가 Cmd+Tab으로 가로채서 App Switcher 띄움.
+
+**해결**: 스왑 룰에서만 UTM 예외 제거. 스왑이 살아있으면 물리 left_command → left_option 변환 → UTM에 Option+Tab 전달 → Windows Alt+Tab 정상 작동.
+
+```python
+# 스왑 룰에선 frontmost_application_unless 조건만 따로 제거
+for rule in rules:
+    if '스왑' in rule['description']:
+        for m in rule['manipulators']:
+            m['conditions'] = [c for c in m['conditions']
+                              if c.get('type') != 'frontmost_application_unless']
+```
+
+**교훈**: VM 예외는 **앱 단축키 룰에만** 적용. 키 자체의 위치/의미를 바꾸는 스왑 룰엔 그대로 둬야 muscle memory가 산다.
+
+### 함정 c: Mos 마우스 스크롤 — UTM 예외 추가했더니 맥 전역 스크롤이 망가짐
+
+UTM 안에선 Mos가 macOS 레벨에서 스크롤 방향 뒤집어서 결과적으로 Windows에서 거꾸로 느껴짐. 그래서 Mos 예외 목록에 UTM 추가하려고 `defaults write`로 직접 박았는데, **Mos가 기대하는 JSON 키 이름이 살짝 달라서** 파싱 실패 → Mos가 글로벌 디폴트로 떨어짐 → Mac 전역 스크롤이 Mac 자연 스크롤로 돌아감.
+
+**1차 해결 시도**: Mos 예외 목록 비우고 재시작 → 그래도 스크롤 방향 안 돌아옴. macOS `swipescrolldirection=false` (Windows 식) + Mos `reverse=1` (반전) 조합이 결국 **이중 반전 = Mac 자연 스크롤** 이라는 걸 그제서야 깨달음.
+
+**최종 해결**: UTM 안 호환은 **포기**. macOS 자연 스크롤 OFF만 살리고 Mos `reverse=0`으로 두면 macOS 기본 처리(Windows 식)가 그대로 통과. 마우스 휠 위로 → 페이지 위로.
+
+```bash
+defaults write -g com.apple.swipescrolldirection -bool false  # 기존 그대로
+defaults write com.caldis.Mos reverse -bool false             # 핵심 변경
+defaults write com.caldis.Mos reverseVertical -bool false
+defaults write com.caldis.Mos reverseHorizontal -bool false
+killall Mos && open -a Mos
+```
+
+UTM 안 Windows에서 스크롤은 거꾸로 느껴지지만, 트레이드오프 수용. **Mac에서 99%, VM에선 95%만 살리는 게 실용적인 합의점**.
+
+### UTM 호환 — 한 줄 요약
+
+| 룰 종류 | UTM 예외 적용? | 이유 |
+|---|---|---|
+| 앱 단축키 (Win+E, Cmd+F4, Ctrl+1~9 등) | ✅ ON | UTM에 raw 전달돼야 Windows가 처리 |
+| Ctrl+C/V/X/Z/A | ✅ ON | UTM에서 Windows Ctrl+C로 동작 |
+| 좌측 Option↔Cmd 스왑 | ❌ OFF (켜진 상태 유지) | 스왑 살려야 Alt+Tab 등 muscle memory 작동 |
+| Mos 마우스 휠 반전 | — (글로벌 OFF로 변경) | macOS 자연 스크롤 OFF로 충분 |
+
+---
+
+## 15. 최종 통계
+
+- 거친 함정: **12가지** (기본 9 + UTM 호환 3)
 - 작성한 Karabiner 규칙: **20개**
 - 매핑된 키 조합: **약 70개**
+- 매니퓰레이터에 박힌 VM 예외 조건: **74개**
 - 설치한 앱: **4종** (Karabiner / Rectangle / AltTab / Mos)
-- 시스템 설정 변경: **9가지**
+- 시스템 설정 변경: **10가지**
 - 재부팅: **2회**
-- 소요 시간: **약 4시간**
-- GitHub 커밋: **6회**
+- 소요 시간: **약 5시간** (UTM 디버깅 1시간 추가)
+- GitHub 커밋: **7회**
 
 새 맥에서 같은 환경 복원하는 데 걸리는 시간:
 - **5~10분** (`bash install.sh` + 권한 클릭 6번 + 재부팅 1회)
 
 ---
 
-## 15. 핵심 교훈
+## 16. 핵심 교훈
 
 1. **macOS의 보안 모델은 자동화의 적**. 애플은 의도적으로 모든 권한 부여를 사람 손가락 거치게 만들었다.
 2. **Karabiner의 simple vs complex 처리 순서를 모르면 영원히 헤맨다**. 모든 매핑은 complex로.
@@ -302,6 +375,8 @@ Karabiner shell_command 액션으로 호출:
 4. **외부 키보드는 별개의 우주**. 입력 소스, 매핑, keycode 모두 분리 처리됨.
 5. **저가 키보드는 펌웨어부터 비표준**. 소프트웨어로 못 고침. 키보드를 바꾸는 게 답.
 6. **저장소 + 자동 스크립트 = 미래의 나에게 주는 선물**. 새 맥 살 때 4시간 → 10분.
+7. **VM(가상머신)은 "또 하나의 macOS 앱"으로 다뤄야 함**. Karabiner 예외 처리 필수, 단 스왑 룰은 살려둬야 muscle memory 보존.
+8. **이중 반전을 조심**. macOS 자연 스크롤 + Mos 반전을 동시에 켜면 결과적으로 Mac 자연 스크롤로 회귀. 둘 중 하나만 켜야 Windows식 휠 작동.
 
 ---
 
@@ -314,5 +389,5 @@ Karabiner shell_command 액션으로 호출:
 ---
 
 **작성**: 권오성 / Claude (Sonnet via Cursor → Opus via Claude Code)
-**날짜**: 2026-04-25 ~ 2026-04-26
+**날짜**: 2026-04-25 ~ 2026-04-26 (UTM 호환 추가: 2026-04-26)
 **저장소**: https://github.com/springdayclinic4-ux/mac-windows-keyboard-setup
